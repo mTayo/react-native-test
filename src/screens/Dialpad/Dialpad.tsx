@@ -93,9 +93,9 @@ const DialpadScreen = ({navigation}: any ) => {
   
     return (
         <ScrollView style={styles.contentContainer}>
-            <SafeAreaView  style={{paddingHorizontal: 20}}>
+            <SafeAreaView  style={{paddingHorizontal: 0}}>
                 {!isObjectEmpty(defaultNumber)? (
-                     <View  style={[appStyles.flexRow, appStyles.itemsCenter, appStyles.justifyBetween]}>
+                     <View  style={[appStyles.flexRow, appStyles.itemsCenter, appStyles.justifyBetween, {paddingHorizontal: 20}]}>
                         <View  style={[appStyles.flexRow, appStyles.gap6]}>
                             <UsFlag width={24}/>
                             <View style={[]}>
@@ -114,7 +114,7 @@ const DialpadScreen = ({navigation}: any ) => {
                         </Pressable>
                     </View> 
                 ): (
-                    <View  style={[appStyles.flexRow, appStyles.justifyEnd]}>
+                    <View  style={[appStyles.flexRow, appStyles.justifyEnd, , {paddingHorizontal: 20}]}>
                         <Pressable 
                             onPress={() => navigation.navigate('NumberManagementScreen')} 
                             style={[styles.getANumber, appStyles.flexRow, appStyles.gap8, appStyles.justifyCenter, appStyles.itemsCenter ]}
@@ -125,22 +125,24 @@ const DialpadScreen = ({navigation}: any ) => {
                     </View> 
                 )}
                 {!defaultNumber?.hasCredit &&(
-                    <Pressable 
-                        onPress={() => navigation.navigate('NumberManagementScreen')} 
-                        style={[styles.topUpMenu, appStyles.flexRow, appStyles.gap8, appStyles.justifyBetween, appStyles.itemsCenter ]}
-                    >
-                        <View style={[appStyles.flexRow, appStyles.gap8, appStyles.itemsCenter]}>
-                            <DiamondIcon width={20} /> 
-                            <Text style={[appStyles.colorBlack, appStyles.font500]}>Balance: 0 CR.</Text>
-                        </View>
-                        <View style={[appStyles.flexRow, appStyles.gap8, appStyles.itemsCenter]}>
-                            <Text style={[appStyles.colorBlack, appStyles.font500]}>Top up</Text>
-                            <ChevronRight width={20} /> 
-                        </View>
-                    </Pressable>
+                    <View style={{paddingHorizontal: 20}}>
+                        <Pressable 
+                            onPress={() => navigation.navigate('NumberManagementScreen')} 
+                            style={[styles.topUpMenu, appStyles.flexRow, appStyles.gap8, appStyles.justifyBetween, appStyles.itemsCenter ]}
+                        >
+                            <View style={[appStyles.flexRow, appStyles.gap8, appStyles.itemsCenter]}>
+                                <DiamondIcon width={20} /> 
+                                <Text style={[appStyles.colorBlack, appStyles.font500]}>Balance: 0 CR.</Text>
+                            </View>
+                            <View style={[appStyles.flexRow, appStyles.gap8, appStyles.itemsCenter]}>
+                                <Text style={[appStyles.colorBlack, appStyles.font500]}>Top up</Text>
+                                <ChevronRight width={20} /> 
+                            </View>
+                        </Pressable>
+                    </View>
                 )}
                
-                <View style={[{marginTop: 24, marginBottom: 8}, appStyles.flexRow, appStyles.itemsCenter, appStyles.justifyBetween]}>
+                <View style={[{marginTop: 24, marginBottom: 8, paddingHorizontal: 20}, appStyles.flexRow, appStyles.itemsCenter, appStyles.justifyBetween]}>
                     <View style={[appStyles.flexRow, appStyles.gap4, appStyles.itemsCenter, styles.flagContainer]}>
                         <UsFlag />
                         <ChevronDown />
@@ -161,7 +163,7 @@ const DialpadScreen = ({navigation}: any ) => {
                     )}
                 </Pressable>
                 <Text style={[appStyles.textCenter, {color: theme.colors.grey500, marginVertical: 8}]}>$0.01/min</Text>
-                <View style={{marginTop: 67}}>
+                <View style={[{marginTop: 67}, styles.numericContainer]}>
                     <NumericKeyPad  
                         onKeyPadPress ={onKeyPadPress} 
                         dialpad  
@@ -302,8 +304,12 @@ const styles = StyleSheet.create({
         height : Platform.OS === 'ios' ? 86 : 70,
         paddingTop: Platform.OS === 'ios' ? 8 : 0,
         paddingBottom: Platform.OS === 'ios' ? 20 : 0,
+        // marginTop: Platform.OS === 'ios' ? 0 : 20,
         borderTopWidth: 1,
         borderTopColor: '#fff'
+    },
+    numericContainer:{
+        marginBottom: Platform.OS === 'ios' ? 0 : 50,
     },
     whiteBtn:{
         borderColor: theme.colors.grey300,

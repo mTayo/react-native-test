@@ -18,7 +18,7 @@ function App() {
   return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="NumberSettingsScreen">
+          <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="DialPadScreen">
               <Stack.Screen
                   name="DialPadScreen"
                   component={DialPadUI}

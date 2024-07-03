@@ -198,12 +198,14 @@ const styles = StyleSheet.create({
     activeCardContainer:{
         backgroundColor: theme.colors.lightGreen300,
         borderRadius: 20,
-        padding: 18
+        padding: 18,
+        overflow: 'hidden'
     },
     inactiveCardContainer:{
         backgroundColor: theme.colors.grey100,
         borderRadius: 20,
-        padding: 18
+        padding: 18,
+        overflow: 'hidden'
     },
     backgroundImg:{
         position: "absolute",
