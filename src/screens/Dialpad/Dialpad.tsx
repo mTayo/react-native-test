@@ -93,7 +93,7 @@ const DialpadScreen = ({navigation}: any ) => {
   
     return (
         <ScrollView style={styles.contentContainer}>
-            <SafeAreaView  style={{paddingHorizontal: 0}}>
+            <SafeAreaView  style={{paddingTop: 14}}>
                 {!isObjectEmpty(defaultNumber)? (
                      <View  style={[appStyles.flexRow, appStyles.itemsCenter, appStyles.justifyBetween, {paddingHorizontal: 20}]}>
                         <View  style={[appStyles.flexRow, appStyles.gap6]}>
