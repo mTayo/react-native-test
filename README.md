@@ -12,7 +12,7 @@
 
 ### `OUTGOING CALL SCREEN (FULL FLOW)`
 
-This project uses Mock data with redux.\
+All UIs have a fully functional flow, This project uses Mock data with redux.\
 
 
 
